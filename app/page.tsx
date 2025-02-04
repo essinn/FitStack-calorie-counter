@@ -1,5 +1,4 @@
 "use client";
-
 import { FoodSearch } from "@/components/food-search";
 import { useSession } from "next-auth/react";
 

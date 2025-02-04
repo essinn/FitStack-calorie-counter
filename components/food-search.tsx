@@ -37,9 +37,9 @@ export const FoodSearch = () => {
             onChange={e => setQuery(e.target.value)}
             onInput={searchFoods}
             placeholder="Search foods..."
-            className="p-2 rounded-md"
+            className=""
           />
-          <Button onSubmit={searchFoods} className="ml-2 text-lg font-medium">
+          <Button onSubmit={searchFoods} className="ml-2">
             Search
           </Button>
         </form>
@@ -47,9 +47,9 @@ export const FoodSearch = () => {
         <div className="">
           <ul className="">
             {results.map(food => (
-              <li key={food.code} className="flex p-3 font-medium text-lg">
-                {food.product_name} - {food.nutriments.energy_kcal_100g} kcal
-                per 100g
+              <li key={food.code} className="">
+                {food.product_name} -{" "}
+                {food.nutriments.energy_kcal_100g || "N/A"} kcal per 100g
               </li>
             ))}
           </ul>
