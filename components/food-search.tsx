@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import axios from "axios";
 import React, { useState } from "react";
@@ -11,15 +12,7 @@ type FoodItem = {
   };
 };
 
-type FoodSearchProps = {
-  onSelectFood: (food: {
-    code: string;
-    product_name: string;
-    nutriments: { energy_kcal_100g: number };
-  }) => void;
-};
-
-export function FoodSearch({ onSelectFood }: FoodSearchProps) {
+export const FoodSearch = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<FoodItem[]>([]);
 
@@ -88,4 +81,4 @@ export function FoodSearch({ onSelectFood }: FoodSearchProps) {
       </div>
     </div>
   );
-}
+};

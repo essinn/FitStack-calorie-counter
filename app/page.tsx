@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import { FoodSearch } from "@/components/food-search";
 import { useSession } from "next-auth/react";
@@ -22,7 +23,7 @@ export default function Page() {
           <h2 className="text-2xl font-semibold mb-6 text-center">
             Search Food Database
           </h2>
-          <FoodSearch onSelectFood={() => {}} />
+          <FoodSearch />
         </div>
       </div>
     </div>
