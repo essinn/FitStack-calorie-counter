@@ -2,7 +2,7 @@
 import { FoodSearch } from "@/components/food-search";
 import { useSession } from "next-auth/react";
 
-export default function page() {
+export default function Page() {
   const { data: session } = useSession();
 
   return (
@@ -22,7 +22,7 @@ export default function page() {
           <h2 className="text-2xl font-semibold mb-6 text-center">
             Search Food Database
           </h2>
-          <FoodSearch />
+          <FoodSearch onSelectFood={() => {}} />
         </div>
       </div>
     </div>

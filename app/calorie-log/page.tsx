@@ -13,7 +13,7 @@ type LogEntry = {
 export default function CalorieLog() {
   const [entries, setEntries] = useState<LogEntry[]>([]);
 
-  const addEntry = (food: {
+  const handleAddEntry = (food: {
     code: string;
     product_name: string;
     nutriments: { energy_kcal_100g: number };
@@ -44,12 +44,12 @@ export default function CalorieLog() {
 
         <div className="bg-zinc-100 dark:bg-zinc-900 rounded-2xl shadow-xl p-8 mb-8">
           <h2 className="text-2xl font-semibold mb-6 text-center">Add Food</h2>
-          <FoodSearch />
+          <FoodSearch onSelectFood={handleAddEntry} />
         </div>
 
         <div className="bg-zinc-100 dark:bg-zinc-900 rounded-2xl shadow-xl p-8">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold">Today's Log</h2>
+            <h2 className="text-2xl font-semibold">Today&apos;s Log</h2>
             <div className="bg-blue-100 dark:bg-blue-900 px-6 py-3 rounded-lg">
               <span className="text-lg font-semibold text-blue-800 dark:text-blue-200">
                 Total Calories: {totalCalories}
