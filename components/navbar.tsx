@@ -66,7 +66,21 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <ModeToggle />
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex">
+            {session ? (
+              <LogoutButton />
+            ) : (
+              <Button asChild>
+                <Link href="/sign-in" className="text-lg font-medium">
+                  Login
+                </Link>
+              </Button>
+            )}
+          </div>
+
+          <ModeToggle />
+        </div>
       </div>
       <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <nav className="flex flex-col space-y-4 p-4">
@@ -89,9 +103,11 @@ export function Navbar() {
             {session ? (
               <LogoutButton />
             ) : (
-              <Link href="/sign-in" className="hover:text-gray-400">
-                Login
-              </Link>
+              <Button asChild className="w-full">
+                <Link href="/sign-in" className="text-lg font-medium">
+                  Login
+                </Link>
+              </Button>
             )}
           </div>
         </nav>
