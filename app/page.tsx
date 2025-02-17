@@ -11,7 +11,7 @@ export default function Page() {
       <div className="container px-4 py-12 mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">
-            Welcome, {session?.user?.name}!
+            {session ? `Hi, ${session?.user?.name}` : "Welcome"}!
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Track your nutrition and discover detailed information about the
