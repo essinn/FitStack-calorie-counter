@@ -46,10 +46,11 @@ export const FoodSearch = () => {
               placeholder="Search foods..."
               className="w-full px-4 py-3 text-gray-700 dark:text-gray-200 bg-white dark:bg-zinc-800 border dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all duration-200"
             />
+            {/* change the button color and size */}
             <Button
               type="submit"
               onClick={searchFoods}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-700"
+              className="absolute right-2 top-1/2 -translate-y-1/2 "
             >
               Search
             </Button>
