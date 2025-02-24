@@ -47,7 +47,23 @@ export function Navbar() {
           <span className="sr-only">Toggle menu</span>
         </Button>
 
+         {/* logo */}
+
         <nav className="hidden md:flex items-center justify-center gap-8">
+        <img
+              src="https://img.icons8.com/?size=100&id=pSTcJCJyb8Ru&format=png&color=ffffff"
+              width={24}
+              height={24}
+              alt="logo icon"
+              className="hidden dark:block"
+            />
+            <img
+              src="https://img.icons8.com/?size=100&id=pSTcJCJyb8Ru&format=png&color=000000"
+              width={24}
+              height={24}
+              alt="logo icon"
+              className="block dark:hidden"
+            />
           <Link href="/" className="md:flex hidden">
             <span className="text-xl font-bold">FitStack</span>
           </Link>
