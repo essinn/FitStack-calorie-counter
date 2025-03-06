@@ -47,32 +47,34 @@ export function Navbar() {
           <span className="sr-only">Toggle menu</span>
         </Button>
 
-         {/* logo */}
+        {/* logo */}
 
-        <nav className="hidden md:flex items-center justify-center gap-8">
-        <img
+        <nav className="hidden md:flex items-center justify-center gap-6">
+          <div className="flex items-center gap-1.5">
+            <img
               src="https://img.icons8.com/?size=100&id=pSTcJCJyb8Ru&format=png&color=ffffff"
-              width={24}
-              height={24}
+              width={20}
+              height={20}
               alt="logo icon"
               className="hidden dark:block"
             />
             <img
               src="https://img.icons8.com/?size=100&id=pSTcJCJyb8Ru&format=png&color=000000"
-              width={24}
-              height={24}
+              width={20}
+              height={20}
               alt="logo icon"
               className="block dark:hidden"
             />
-          <Link href="/" className="md:flex hidden">
-            <span className="text-xl font-bold">FitStack</span>
-          </Link>
+            <Link href="/dashboard" className="md:flex hidden">
+              <span className="text-lg font-semibold">FitStack</span>
+            </Link>
+          </div>
           {navItems.map(item => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-lg font-medium transition-colors hover:text-primary",
+                "text-md font-medium transition-colors hover:text-primary",
                 pathname === item.href
                   ? "text-foreground"
                   : "text-foreground/60"
@@ -88,7 +90,7 @@ export function Navbar() {
               <LogoutButton />
             ) : (
               <Button asChild>
-                <Link href="/sign-in" className="text-lg font-medium">
+                <Link href="/" className="md:text-md font-medium">
                   Login
                 </Link>
               </Button>
@@ -105,7 +107,7 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-lg font-medium transition-colors hover:text-primary",
+                "text-md font-medium transition-colors hover:text-primary",
                 pathname === item.href
                   ? "text-foreground"
                   : "text-foreground/60"
@@ -120,7 +122,7 @@ export function Navbar() {
               <LogoutButton />
             ) : (
               <Button asChild className="w-full">
-                <Link href="/sign-in" className="text-lg font-medium">
+                <Link href="/" className="text-md font-medium">
                   Login
                 </Link>
               </Button>

@@ -3,6 +3,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { PlusIcon, SearchIcon } from "lucide-react";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 type FoodItem = {
   code: string;
@@ -15,6 +18,7 @@ type FoodItem = {
 export const FoodSearch = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<FoodItem[]>([]);
+  const [calories, setCalories] = useState(0);
 
   const searchFoods = async () => {
     try {
@@ -28,58 +32,80 @@ export const FoodSearch = () => {
     }
   };
 
-  return (
-    <div className="max-w-4xl mx-auto mt-8">
-      <div className="mb-8">
-        <form
-          className="flex items-center justify-center"
-          onSubmit={e => {
-            e.preventDefault();
-            searchFoods();
-          }}
-        >
-          <div className="relative w-full max-w-xl">
-            <input
-              type="text"
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              placeholder="Search foods..."
-              className="w-full px-4 py-3 text-gray-700 dark:text-gray-200 bg-white dark:bg-zinc-800 border dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all duration-200"
-            />
-            {/* change the button color and size */}
-            <Button
-              type="submit"
-              onClick={searchFoods}
-              className="absolute right-2 top-1/2 -translate-y-1/2 "
-            >
-              Search
-            </Button>
-          </div>
-        </form>
+  const addCalories = (calories: number) => {
+    setCalories(prev => prev + calories);
+  };
 
-        <div className="mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {results.map(food => (
-              <div
-                key={food.code}
-                className="p-6 bg-white dark:bg-zinc-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
-              >
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+  return (
+    <div className="mb-8">
+      <form
+        className="flex items-center justify-center"
+        onSubmit={e => {
+          e.preventDefault();
+          searchFoods();
+        }}
+      >
+        <div className="w-full flex items-center justify-center gap-2">
+          <Input
+            type="text"
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            placeholder="Search for a food (e.g.., apple, chicken, pasta)"
+            className="w-full px-3 placeholder:text-md text-md"
+          />
+          <Button
+            type="submit"
+            onClick={searchFoods}
+            className="bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-200"
+          >
+            <SearchIcon className="h-5 w-5" />
+          </Button>
+        </div>
+      </form>
+
+      <div className="mt-8">
+        <div className="grid grid-cols-1 gap-4">
+          {results.map(food => (
+            <CardContent
+              key={food.code}
+              className="p-6 bg-zinc-100 dark:bg-zinc-800 rounded flex items-center justify-between"
+            >
+              <div>
+                <CardTitle className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
                   {food.product_name}
-                </h3>
-                <div className="flex items-center">
-                  <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                    {food.nutriments.energy_kcal_100g || "N/A"}
+                </CardTitle>
+                <CardDescription className="flex items-center">
+                  <span className="text-gray-600 dark:text-gray-300">
+                    {food.nutriments.energy_kcal_100g || "52"} kcal | 100g
                   </span>
-                  <span className="ml-2 text-gray-600 dark:text-gray-300">
-                    kcal per 100g
-                  </span>
-                </div>
+                </CardDescription>
               </div>
-            ))}
-          </div>
+
+              <div>
+                <Button
+                  variant="ghost"
+                  onClick={() =>
+                    addCalories(food.nutriments.energy_kcal_100g || 52)
+                  }
+                >
+                  <PlusIcon className="h-5 w-5" />
+                </Button>
+              </div>
+            </CardContent>
+          ))}
         </div>
       </div>
+      {results.length !== 0 && (
+        <CardHeader className="text-center">
+          <CardDescription className="text-2xl font-bold">
+            Total Calories{" "}
+            <span className="text-blue-600 dark:text-blue-400">{calories}</span>
+          </CardDescription>
+          <span className="text-zinc-400 dark:text-zinc-600">
+            Click the plus to add up your total calories.
+          </span>
+        </CardHeader>
+      )}
     </div>
   );
 };
