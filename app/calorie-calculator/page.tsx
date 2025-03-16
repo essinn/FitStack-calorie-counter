@@ -119,9 +119,9 @@ export default function CalorieCalculator() {
               type="number"
               value={height}
               onChange={(e) => {
-                const newHeight = parseFloat(e.target.value);
-                if (newHeight > 0 || e.target.value === "") {
-                  setHeight(e.target.value);
+                const newHeight = e.target.value;
+                if (/^[1-9]\d*$|^$/.test(newHeight)) {
+                  setHeight(newHeight);
                 }
               }}
               placeholder="Height (cm)"

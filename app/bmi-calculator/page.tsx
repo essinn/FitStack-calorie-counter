@@ -39,7 +39,13 @@ export default function BMICalculator() {
             <Input
               type="number"
               value={weight}
-              onChange={e => setWeight(e.target.value)}
+
+              onChange={(e) => {
+                const newWeight = parseFloat(e.target.value);
+                if (newWeight > 0 || e.target.value === "") {
+                  setWeight(e.target.value);
+                }
+              }}
               placeholder="Weight (kg)"
               className="w-full px-3"
             />
@@ -49,7 +55,13 @@ export default function BMICalculator() {
             <Input
               type="number"
               value={height}
-              onChange={e => setHeight(e.target.value)}
+
+              onChange={(e) => {
+                const newHeight = parseFloat(e.target.value);
+                if (newHeight > 0 || e.target.value === "") {
+                  setHeight(e.target.value);
+                }
+              }}
               placeholder="Height (cm)"
               className="w-full px-3"
             />
