@@ -15,13 +15,36 @@ export default function BMICalculator() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [bmi, setBMI] = useState<number | null>(null);
+  const [healthStatus, setHealthStatus] = useState<string>("");
+  const [advice, setAdvice] = useState("");
 
   const calculateBMI = () => {
     const weightInKg = parseFloat(weight);
     const heightInM = parseFloat(height) / 100;
     const bmiValue = weightInKg / (heightInM * heightInM);
     setBMI(Number(bmiValue.toFixed(1)));
+
+    let status = "";
+    let healthAdvice = "";
+
+    if (bmiValue < 18.5) {
+      status = "Underweight";
+      healthAdvice = "Consider increasing your calorie intake with a balanced diet.";
+    } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
+      status = "Normal weight";
+      healthAdvice = "Maintain your healthy lifestyle with regular exercise and a balanced diet.";
+    } else if (bmiValue >= 25 && bmiValue <= 29.9) {
+      status = "Overweight";
+      healthAdvice = "Incorporate regular physical activity and monitor your calorie intake.";
+    } else {
+      status = "Obese";
+      healthAdvice = "Consult a healthcare professional for a personalized weight management plan.";
+    }
+    setHealthStatus(status);
+    setAdvice(healthAdvice);
   };
+    
+  
   return (
     <Card className="min-h-screen mx-4 my-20">
       <CardHeader>
@@ -78,6 +101,15 @@ export default function BMICalculator() {
                 Your BMI is{" "}
                 <span className="text-blue-600 dark:text-blue-400">{bmi}</span>
               </CardDescription>
+              <CardDescription className="text-xl font-semibold text-gray-700 dark:text-gray-300">
+                Health Status:{" "}
+                <span className="text-blue-600 dark:text-blue-400">
+                  {healthStatus}
+                </span>
+              </CardDescription>
+              <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-4 border-l-4 border-blue-600">
+                <p className="text-gray-700 dark:text-gray-300 font-medium">{advice}</p>
+              </div>
             </CardHeader>
           )}
         </div>
