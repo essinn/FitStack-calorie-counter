@@ -155,10 +155,7 @@ export default function CalorieCalculator() {
           {calories && (
             <CardHeader className="text-center">
               <CardDescription className="text-2xl font-bold">
-                Your Calorie Intake is{" "}
-                <span className="text-blue-600 dark:text-blue-400">
-                  {calories}
-                </span>
+              Your Calorie Intake is <span className="text-blue-600 dark:text-blue-400">{calories}</span> kcal
               </CardDescription>
             </CardHeader>
           )}
