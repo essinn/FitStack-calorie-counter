@@ -88,7 +88,12 @@ export default function CalorieCalculator() {
             <Input
               type="number"
               value={age}
-              onChange={e => setAge(e.target.value)}
+              onChange={(e) => {
+                const newAge = parseInt(e.target.value, 10);
+                if (newAge > 0 || e.target.value === "") {
+                  setAge(e.target.value);
+                }
+              }}
               placeholder="Age"
               className="w-full px-3 text-gray-700 dark:text-gray-200"
             />
@@ -98,7 +103,12 @@ export default function CalorieCalculator() {
             <Input
               type="number"
               value={weight}
-              onChange={e => setWeight(e.target.value)}
+              onChange={(e) => {
+                const newWeight = parseFloat(e.target.value);
+                if (newWeight > 0 || e.target.value === "") {
+                  setWeight(e.target.value);
+                }
+              }}
               placeholder="Weight (kg)"
               className="w-full px-3 text-gray-700 dark:text-gray-200"
             />
@@ -108,7 +118,12 @@ export default function CalorieCalculator() {
             <Input
               type="number"
               value={height}
-              onChange={e => setHeight(e.target.value)}
+              onChange={(e) => {
+                const newHeight = e.target.value;
+                if (/^[1-9]\d*$|^$/.test(newHeight)) {
+                  setHeight(newHeight);
+                }
+              }}
               placeholder="Height (cm)"
               className="w-full px-3 text-gray-700 dark:text-gray-200"
             />
@@ -125,7 +140,7 @@ export default function CalorieCalculator() {
               <SelectContent>
                 {Object.keys(activityLevels).map(level => (
                   <SelectItem key={level} value={level}>
-                    {level}
+                    {level.charAt(0).toUpperCase() + level.slice(1)}
                   </SelectItem>
                 ))}
               </SelectContent>
