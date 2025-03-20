@@ -13,8 +13,11 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function Page() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
@@ -24,18 +27,16 @@ export default function Page() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Track Your Calories, Transform Your Life
+                    {t('home.title')}
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Personalized nutrition tracking based on your unique
-                    profile. Search foods, calculate BMI, and reach your health
-                    goals.
+                    {t('home.subtitle')}
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button size="lg" className="gap-1.5" asChild>
                     <Link href="/dashboard">
-                      Get Started
+                      {t('home.get_started')}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
@@ -45,10 +46,10 @@ export default function Page() {
                 <Card className="w-full max-w-md">
                   <CardHeader className="text-center">
                     <CardTitle className="text-2xl">
-                      Sign in to FitStack
+                      {t('home.signin_title')}
                     </CardTitle>
                     <CardDescription>
-                      Track your calories and reach your fitness goals
+                      {t('home.signin_subtitle')}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex justify-center">
@@ -65,13 +66,12 @@ export default function Page() {
                         width={20}
                         height={20}
                       />
-                      Sign in with Google
+                      {t('navbar.login')} com Google
                     </Button>
                   </CardContent>
                   <CardFooter className="flex flex-col text-center text-sm text-muted-foreground">
                     <p>
-                      By signing in, you agree to our Terms of Service and
-                      Privacy Policy.
+                      {t('home.terms')}
                     </p>
                   </CardFooter>
                 </Card>

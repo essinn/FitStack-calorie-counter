@@ -1,0 +1,41 @@
+{
+    "navbar": {
+      "home": "Home",
+      "bmi": "BMI Calculator",
+      "calorie": "Calorie Calculator",
+      "login": "Login"
+    },
+    "home": {
+      "title": "Track Your Calories, Transform Your Life",
+      "subtitle": "Personalized nutrition tracking based on your unique profile. Search foods, calculate BMI, and reach your health goals.",
+      "get_started": "Get Started",
+      "signin_title": "Sign in to FitStack",
+      "signin_subtitle": "Track your calories and reach your fitness goals",
+      "terms": "By signing in, you agree to our Terms of Service and Privacy Policy."
+    },
+    "bmi": {
+      "title": "BMI Calculator",
+      "subtitle": "Calculate your Body Mass Index (BMI) to assess your weight relative to your height.",
+      "weight": "Weight (kg)",
+      "height": "Height (cm)",
+      "calculate": "Calculate",
+      "result": "Your BMI is",
+      "status": "Health Status",
+      "advice": "Advice"
+    },
+    "calorie": {
+      "title": "Calorie Intake Calculator",
+      "subtitle": "Calculate your Calorie Intake based on your gender, age, weight, height, and activity level.",
+      "gender": "Gender",
+      "age": "Age",
+      "activity": "Activity Level",
+      "calculate": "Calculate",
+      "result": "Your Calorie Intake is"
+    },
+    "food_search": {
+      "placeholder": "Search for a food (e.g., apple, chicken, pasta)",
+      "search": "Search",
+      "total": "Total Calories",
+      "add_note": "Click the plus to add up your total calories."
+    }
+  }
