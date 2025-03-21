@@ -1,5 +1,25 @@
-export const navItems = [
-  { name: "Home", href: "/dashboard" },
-  { name: "BMI Calculator", href: "/bmi-calculator" },
-  { name: "Calorie Calculator", href: "/calorie-calculator" },
+// constants/nav.ts
+
+interface NavItem {
+  name: string;
+  href: string;
+  translationKey: string;
+}
+
+export const navItems: NavItem[] = [
+  { 
+    name: "Home", 
+    href: "/dashboard",
+    translationKey: "home"  // Added
+  },
+  { 
+    name: "BMI Calculator", 
+    href: "/bmi-calculator",
+    translationKey: "bmi"  // Added
+  },
+  { 
+    name: "Calorie Calculator", 
+    href: "/calorie-calculator",
+    translationKey: "calorie"  // Added
+  },
 ];

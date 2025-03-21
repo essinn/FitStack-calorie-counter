@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
-    domains: ["www.google.com"], // Should be an array
+    domains: ["www.google.com"],
   },
+  reactStrictMode: true, // Make sure React Strict Mode is enabled for debugging
 };
 
 export default nextConfig;

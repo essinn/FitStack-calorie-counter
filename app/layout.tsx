@@ -4,6 +4,7 @@ import "./globals.css";
 import AuthProvider from "@/utils/session-provider";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import I18nProvider from "@/components/i18n-provider";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -12,8 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Calorie Counter",
-  description:
-    "A simple calorie counter app, where you can generate you bmi, track you calories and search for food items to get their calorie count.",
+  description: "A simple calorie counter app...",
 };
 
 export default function RootLayout({
@@ -25,15 +25,17 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.variable} antialiased`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            <main className="pt-16">{children}</main>
-          </ThemeProvider>
+          <I18nProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Navbar />
+              <main className="pt-16">{children}</main>
+            </ThemeProvider>
+          </I18nProvider>
         </body>
       </html>
     </AuthProvider>

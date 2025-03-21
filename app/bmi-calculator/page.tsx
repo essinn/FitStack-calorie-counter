@@ -10,8 +10,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function BMICalculator() {
+  const { t } = useTranslation();
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [bmi, setBMI] = useState<number | null>(null);
@@ -24,68 +26,67 @@ export default function BMICalculator() {
     const bmiValue = weightInKg / (heightInM * heightInM);
     setBMI(Number(bmiValue.toFixed(1)));
 
-    let status = "";
-    let healthAdvice = "";
+    let statusKey = "";
+    let adviceKey = "";
 
     if (bmiValue < 18.5) {
-      status = "Underweight";
-      healthAdvice = "Consider increasing your calorie intake with a balanced diet.";
+      statusKey = "underweight";
+      adviceKey = "underweight_advice";
     } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
-      status = "Normal weight";
-      healthAdvice = "Maintain your healthy lifestyle with regular exercise and a balanced diet.";
+      statusKey = "normal";
+      adviceKey = "normal_advice";
     } else if (bmiValue >= 25 && bmiValue <= 29.9) {
-      status = "Overweight";
-      healthAdvice = "Incorporate regular physical activity and monitor your calorie intake.";
+      statusKey = "overweight";
+      adviceKey = "overweight_advice";
     } else {
-      status = "Obese";
-      healthAdvice = "Consult a healthcare professional for a personalized weight management plan.";
+      statusKey = "obese";
+      adviceKey = "obese_advice";
     }
-    setHealthStatus(status);
-    setAdvice(healthAdvice);
+
+    setHealthStatus(t(`bmi.status.${statusKey}`));
+    setAdvice(t(`bmi.advice.${adviceKey}`));
   };
-    
-  
+
   return (
     <Card className="min-h-screen mx-4 my-20">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold">BMI Calculator</CardTitle>
+        <CardTitle className="text-3xl font-bold">
+          {t('bmi.title')}
+        </CardTitle>
         <CardDescription className="text-md">
-          Calculate your Body Mass Index (BMI) to assess your weight relative to
-          your height.
+          {t('bmi.subtitle')}
         </CardDescription>
       </CardHeader>
 
       <CardContent>
         <div className="space-y-5">
           <div className="space-y-2">
-            <Label>Weight (kg): </Label>
+            <Label>{t('bmi.weight')}</Label>
             <Input
               type="number"
               value={weight}
-
               onChange={(e) => {
                 const newWeight = parseFloat(e.target.value);
                 if (newWeight > 0 || e.target.value === "") {
                   setWeight(e.target.value);
                 }
               }}
-              placeholder="Weight (kg)"
+              placeholder={t('bmi.weight')}
               className="w-full px-3"
             />
           </div>
           <div className="space-y-2">
-            <Label>Height (cm): </Label>
+            <Label>{t('bmi.height')}</Label>
             <Input
               type="number"
               value={height}
-
               onChange={(e) => {
                 const newHeight = parseFloat(e.target.value);
                 if (newHeight > 0 || e.target.value === "") {
                   setHeight(e.target.value);
                 }
               }}
-              placeholder="Height (cm)"
+              placeholder={t('bmi.height')}
               className="w-full px-3"
             />
           </div>
@@ -93,16 +94,16 @@ export default function BMICalculator() {
             onClick={calculateBMI}
             className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-200"
           >
-            Calculate
+            {t('bmi.calculate')}
           </Button>
           {bmi && (
             <CardHeader className="text-center">
               <CardDescription className="text-2xl font-bold">
-                Your BMI is{" "}
+                {t('bmi.result')}{" "}
                 <span className="text-blue-600 dark:text-blue-400">{bmi}</span>
               </CardDescription>
               <CardDescription className="text-xl font-semibold text-gray-700 dark:text-gray-300">
-                Health Status:{" "}
+                {t('bmi.status.label')}:{" "}
                 <span className="text-blue-600 dark:text-blue-400">
                   {healthStatus}
                 </span>
