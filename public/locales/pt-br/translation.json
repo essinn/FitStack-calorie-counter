@@ -1,0 +1,41 @@
+{
+    "navbar": {
+      "home": "Início",
+      "bmi": "Calculadora de IMC",
+      "calorie": "Calculadora de Calorias",
+      "login": "Entrar"
+    },
+    "home": {
+      "title": "Acompanhe Suas Calorias, Transforme Sua Vida",
+      "subtitle": "Acompanhamento nutricional personalizado com base no seu perfil único. Procure alimentos, calcule o IMC e alcance seus objetivos de saúde.",
+      "get_started": "Começar",
+      "signin_title": "Acesse o FitStack",
+      "signin_subtitle": "Acompanhe suas calorias e alcance seus objetivos fitness",
+      "terms": "Ao entrar, você concorda com nossos Termos de Serviço e Política de Privacidade."
+    },
+    "bmi": {
+      "title": "Calculadora de IMC",
+      "subtitle": "Calcule seu Índice de Massa Corporal (IMC) para avaliar seu peso em relação à sua altura.",
+      "weight": "Peso (kg)",
+      "height": "Altura (cm)",
+      "calculate": "Calcular",
+      "result": "Seu IMC é",
+      "status": "Status de Saúde",
+      "advice": "Recomendação"
+    },
+    "calorie": {
+      "title": "Calculadora de Calorias",
+      "subtitle": "Calcule sua ingestão calórica com base no seu sexo, idade, peso, altura e nível de atividade.",
+      "gender": "Sexo",
+      "age": "Idade",
+      "activity": "Nível de Atividade",
+      "calculate": "Calcular",
+      "result": "Sua Ingestão Calórica é"
+    },
+    "food_search": {
+      "placeholder": "Procure um alimento (ex.: maçã, frango, macarrão)",
+      "search": "Buscar",
+      "total": "Calorias Totais",
+      "add_note": "Clique no + para somar às suas calorias totais."
+    }
+  }
