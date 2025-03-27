@@ -73,7 +73,11 @@ export default function CalorieCalculator() {
         <div className="space-y-5">
           <div className="space-y-2">
             <Label>Gender: </Label>
-            <Select value={gender} onValueChange={value => setGender(value)}>
+            <Select value={gender} onValueChange={(value) => {
+              setGender(value);
+              setCalories(null);
+            }}
+            >
               <SelectTrigger id="gender">
                 <SelectValue placeholder="Select gender" />
               </SelectTrigger>
@@ -89,9 +93,11 @@ export default function CalorieCalculator() {
               type="number"
               value={age}
               onChange={(e) => {
-                const newAge = parseInt(e.target.value, 10);
-                if (newAge > 0 || e.target.value === "") {
-                  setAge(e.target.value);
+                const value = e.target.value;
+                const parsed = parseInt(value, 10);
+                if (parsed > 0 || value === "") {
+                  setAge(value);
+                  setCalories(null);
                 }
               }}
               placeholder="Age"
@@ -104,9 +110,11 @@ export default function CalorieCalculator() {
               type="number"
               value={weight}
               onChange={(e) => {
-                const newWeight = parseFloat(e.target.value);
-                if (newWeight > 0 || e.target.value === "") {
-                  setWeight(e.target.value);
+                const value = e.target.value;
+                const parsed = parseFloat(value);
+                if (parsed > 0 || value === "") {
+                  setWeight(value);
+                  setCalories(null);
                 }
               }}
               placeholder="Weight (kg)"
@@ -119,9 +127,10 @@ export default function CalorieCalculator() {
               type="number"
               value={height}
               onChange={(e) => {
-                const newHeight = e.target.value;
-                if (/^[1-9]\d*$|^$/.test(newHeight)) {
-                  setHeight(newHeight);
+                const value = e.target.value;
+                if (/^[1-9]\d*$|^$/.test(value)) {
+                  setHeight(value);
+                  setCalories(null);
                 }
               }}
               placeholder="Height (cm)"
@@ -132,7 +141,10 @@ export default function CalorieCalculator() {
             <Label>Activity Level: </Label>
             <Select
               value={activityLevel}
-              onValueChange={value => setActivityLevel(value)}
+              onValueChange={(value) => {
+                setActivityLevel(value);
+                setCalories(null);
+              }}
             >
               <SelectTrigger id="activity-level">
                 <SelectValue placeholder="Select activity level" />
@@ -155,7 +167,7 @@ export default function CalorieCalculator() {
           {calories && (
             <CardHeader className="text-center">
               <CardDescription className="text-2xl font-bold">
-              Your Calorie Intake is <span className="text-blue-600 dark:text-blue-400">{calories}</span> kcal
+                Your Calorie Intake is <span className="text-blue-600 dark:text-blue-400">{calories}</span> kcal
               </CardDescription>
             </CardHeader>
           )}
