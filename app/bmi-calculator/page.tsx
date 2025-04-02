@@ -43,8 +43,8 @@ export default function BMICalculator() {
     setHealthStatus(status);
     setAdvice(healthAdvice);
   };
-    
-  
+
+
   return (
     <Card className="min-h-screen mx-4 my-20">
       <CardHeader>
@@ -64,10 +64,11 @@ export default function BMICalculator() {
               value={weight}
 
               onChange={(e) => {
-                const newWeight = parseFloat(e.target.value);
-                if (newWeight > 0 || e.target.value === "") {
-                  setWeight(e.target.value);
-                }
+                const value = e.target.value;
+                setWeight(value);
+                setBMI(null);
+                setHealthStatus("");
+                setAdvice("");
               }}
               placeholder="Weight (kg)"
               className="w-full px-3"
@@ -80,10 +81,11 @@ export default function BMICalculator() {
               value={height}
 
               onChange={(e) => {
-                const newHeight = parseFloat(e.target.value);
-                if (newHeight > 0 || e.target.value === "") {
-                  setHeight(e.target.value);
-                }
+                const value = e.target.value;
+                setHeight(value);
+                setBMI(null);
+                setHealthStatus("");
+                setAdvice("");
               }}
               placeholder="Height (cm)"
               className="w-full px-3"

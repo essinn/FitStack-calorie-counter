@@ -19,11 +19,11 @@ export const FoodSearch = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<FoodItem[]>([]);
   const [calories, setCalories] = useState(0);
-   
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (/^[a-zA-Z\s]*$/.test(value)) {
-      setQuery(value); 
+      setQuery(value);
     }
   };
   const searchFoods = async () => {
@@ -55,7 +55,7 @@ export const FoodSearch = () => {
           <Input
             type="text"
             value={query}
-            onChange= {handleInputChange}
+            onChange={handleInputChange}
             placeholder="Search for a food (e.g.., apple, chicken, pasta)"
             className="w-full px-3 placeholder:text-md text-md"
           />
