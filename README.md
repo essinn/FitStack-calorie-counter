@@ -4,10 +4,10 @@ FitStack is a web application that allows you to track your fitness and nutritio
 
 ## 🌐 Table of Contents
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
+- [✨ Features](#features)
+- [🛠️ Technologies Used](#technologies-used)
+- [🔰 Getting Started](#getting-started)
+- [🤝 Contributing](#contributing)
 
 ## ✨ <a name="features">Features</a>
 
