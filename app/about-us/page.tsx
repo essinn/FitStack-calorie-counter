@@ -16,7 +16,7 @@ export default function AboutUs() {
             empower individuals with precise calorie tracking and insightful health analytics.
           </p>
           <p>
-            Whether you're aiming to lose weight, gain muscle, or simply maintain a 
+            Whether you&apos;re aiming to lose weight, gain muscle, or simply maintain a 
             healthy lifestyle, our tools provide accurate calculations and valuable insights.
           </p>
           <p>
