@@ -60,12 +60,18 @@ export const FoodSearch = () => {
             className="w-full px-3 placeholder:text-md text-md"
           />
           <Button
-            type="submit"
-            onClick={searchFoods}
-            className="bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-200"
-          >
-            <SearchIcon className="h-5 w-5" />
-          </Button>
+  type="submit"
+  onClick={searchFoods}
+  className="bg-primary text-primary-foreground hover:bg-primary/90 transition duration-300"
+>
+  <div className="relative flex items-center justify-center w-6 h-6">
+    {/* 🔍 Debug ping ring with red border */}
+    <span className="absolute -inset-1 rounded-md bg-primary opacity-60 animate-ping-soft"></span>
+    
+    <SearchIcon className="relative z-10 h-5 w-5" />
+  </div>
+</Button>
+
         </div>
       </form>
 
