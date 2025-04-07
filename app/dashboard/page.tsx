@@ -14,7 +14,7 @@ export default function Page() {
   const { data: session } = useSession();
 
   return (
-    <Card className="min-h-screen mx-4 my-20">
+    <Card className="min-h-screen mx-4 my-20 bg-card text-card-foreground shadow-md rounded-xl">
       <CardHeader>
         <CardTitle className="font-bold text-3xl">Search Food</CardTitle>
         <CardDescription className="text-md">

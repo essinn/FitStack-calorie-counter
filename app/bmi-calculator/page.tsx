@@ -92,20 +92,22 @@ export default function BMICalculator() {
             />
           </div>
           <Button
-            onClick={calculateBMI}
-            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-200"
+          onClick={calculateBMI}
+          variant="default" // ✅ tells the Button to use your theme’s green
+          className="w-full px-6 py-3 font-semibold"
           >
-            Calculate
+          Calculate
           </Button>
+
           {bmi && (
             <CardHeader className="text-center">
               <CardDescription className="text-2xl font-bold">
                 Your BMI is{" "}
-                <span className="text-blue-600 dark:text-blue-400">{bmi}</span>
+                <span className="text-primary">{bmi}</span>
               </CardDescription>
               <CardDescription className="text-xl font-semibold text-gray-700 dark:text-gray-300">
                 Health Status:{" "}
-                <span className="text-blue-600 dark:text-blue-400">
+                <span className="text-primary">
                   {healthStatus}
                 </span>
               </CardDescription>

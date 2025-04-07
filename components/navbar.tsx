@@ -30,10 +30,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
+        "fixed top-0 z-50 w-full transition-all duration-300 px-4",  /* fixed top-0 z-50 w-full transition-all duration-300 old code add px thingy for padding */
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          ? "bg-[hsl(94,39%,85%)] dark:bg-[hsl(120,4%,8%)] shadow-md dark:shadow-lg backdrop-blur-md dark:backdrop-blur"  /* bg-background/80 backdrop-blur-md shadow-sm old code */
+          : "bg-[hsl(94,39%,85%)] dark:bg-[hsl(120,4%,8%)]"  /*bg-transparent old code */
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -48,9 +48,7 @@ export function Navbar() {
         </Button>
 
         {/* logo */}
-
-        <nav className="hidden md:flex items-center justify-center gap-6">
-          <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5">
             <img
               src="https://img.icons8.com/?size=100&id=pSTcJCJyb8Ru&format=png&color=ffffff"
               width={20}
@@ -63,12 +61,14 @@ export function Navbar() {
               width={20}
               height={20}
               alt="logo icon"
-              className="block dark:hidden"
-            />
+              className="block dark:hidden"   /* moved the nave stuff out of the nav div*/
+            />    
             <Link href="/dashboard" className="md:flex hidden">
               <span className="text-lg font-semibold">FitStack</span>
             </Link>
           </div>
+        <nav className="hidden md:flex items-center justify-center gap-10">
+          
           {navItems.map(item => (
             <Link
               key={item.href}

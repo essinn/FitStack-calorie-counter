@@ -159,16 +159,17 @@ export default function CalorieCalculator() {
             </Select>
           </div>
           <Button
-            onClick={calculateCalories}
-            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-200"
+          onClick={calculateCalories}
+          variant="default"
+          className="w-full px-6 py-3 font-semibold"
           >
-            Calculate
+          Calculate
           </Button>
           {calories && (
             <CardHeader className="text-center">
               <CardDescription className="text-2xl font-bold">
-                Your Calorie Intake is <span className="text-blue-600 dark:text-blue-400">{calories}</span> kcal
-              </CardDescription>
+                Your Calorie Intake is <span className="text-primary">{calories}</span> kcal  
+              </CardDescription> 
             </CardHeader>
           )}
         </div>
