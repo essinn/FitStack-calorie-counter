@@ -5,6 +5,7 @@ import AuthProvider from "@/utils/session-provider";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
           >
             <Navbar />
             <main className="pt-16">{children}</main>
+            <Footer />
           </ThemeProvider>
           <Analytics />
         </body>
