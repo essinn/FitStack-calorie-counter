@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { BottomSheet } from "@/components/bottom-sheet";
 import { navItems } from "@/constants/nav";
 import { ModeToggle } from "./mode-toggle";
+import { AuthButton } from "./auth-button";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -30,10 +31,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300 px-4",  /* fixed top-0 z-50 w-full transition-all duration-300 old code add px thingy for padding */
+        "fixed top-0 z-50 w-full transition-all duration-300 px-4" /* fixed top-0 z-50 w-full transition-all duration-300 old code add px thingy for padding */,
         isScrolled
-          ? "bg-[hsl(94,39%,85%)] dark:bg-[hsl(120,4%,8%)] shadow-md dark:shadow-lg backdrop-blur-md dark:backdrop-blur"  /* bg-background/80 backdrop-blur-md shadow-sm old code */
-          : "bg-[hsl(94,39%,85%)] dark:bg-[hsl(120,4%,8%)]"  /*bg-transparent old code */
+          ? "bg-[hsl(94,39%,85%)] dark:bg-[hsl(120,4%,8%)] shadow-md dark:shadow-lg backdrop-blur-md dark:backdrop-blur" /* bg-background/80 backdrop-blur-md shadow-sm old code */
+          : "bg-[hsl(94,39%,85%)] dark:bg-[hsl(120,4%,8%)]" /*bg-transparent old code */
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -47,8 +48,9 @@ export function Navbar() {
           <span className="sr-only">Toggle menu</span>
         </Button>
 
-        {/* logo */}
-        <div className="flex items-center gap-1.5">
+        <nav className="hidden md:flex items-center justify-center gap-10">
+          {/* logo */}
+          <div className="flex items-center gap-1.5">
             <img
               src="https://img.icons8.com/?size=100&id=pSTcJCJyb8Ru&format=png&color=ffffff"
               width={20}
@@ -61,14 +63,13 @@ export function Navbar() {
               width={20}
               height={20}
               alt="logo icon"
-              className="block dark:hidden"   /* moved the nave stuff out of the nav div*/
-            />    
-            <Link href="/dashboard" className="md:flex hidden">
+              className="block dark:hidden"
+            />
+            <Link href="/" className="md:flex hidden">
               <span className="text-lg font-semibold">FitStack</span>
             </Link>
           </div>
-        <nav className="hidden md:flex items-center justify-center gap-10">
-          
+
           {navItems.map(item => (
             <Link
               key={item.href}
@@ -87,7 +88,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <div className="hidden md:flex">
             {session ? (
-              <LogoutButton />
+              <AuthButton />
             ) : (
               <Button asChild>
                 <Link href="/" className="md:text-md font-medium">
@@ -96,8 +97,17 @@ export function Navbar() {
               </Button>
             )}
           </div>
-
-          <ModeToggle />
+          <div className="md:hidden">
+            {session ? (
+              <AuthButton />
+            ) : (
+              <Button asChild>
+                <Link href="/" className="md:text-md font-medium">
+                  Login
+                </Link>
+              </Button>
+            )}
+          </div>
         </div>
       </div>
       <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
@@ -117,17 +127,6 @@ export function Navbar() {
               {item.name}
             </Link>
           ))}
-          <div className="py-5">
-            {session ? (
-              <LogoutButton />
-            ) : (
-              <Button asChild className="w-full">
-                <Link href="/" className="text-md font-medium">
-                  Login
-                </Link>
-              </Button>
-            )}
-          </div>
         </nav>
       </BottomSheet>
     </header>
