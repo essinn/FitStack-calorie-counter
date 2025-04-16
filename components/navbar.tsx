@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import LogoutButton from "./logout-btn";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Menu } from "lucide-react";
@@ -11,7 +10,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { BottomSheet } from "@/components/bottom-sheet";
 import { navItems } from "@/constants/nav";
-import { ModeToggle } from "./mode-toggle";
 import { AuthButton } from "./auth-button";
 
 export function Navbar() {

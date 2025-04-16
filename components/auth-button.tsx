@@ -9,10 +9,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { signIn, signOut, useSession } from "next-auth/react";
-import Link from "next/link";
-import { LogOut, User } from "lucide-react";
-import { ModeToggle } from "./mode-toggle";
+import { signOut, useSession } from "next-auth/react";
+import { LogOut } from "lucide-react";
 
 export function AuthButton() {
   const { data: session, status } = useSession();
